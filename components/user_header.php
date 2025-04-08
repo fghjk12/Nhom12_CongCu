@@ -9,15 +9,15 @@
       <nav class="navbar">
          <a href="trang_chủ.php"><i class="fa-solid fa-house"></i> trang chủ </a>
          <a href="all_dtdd.php"><i class="fa-solid fa-mobile-button"></i> điện thoại</a>
-         <a href="all_cáp_điện_thoại.php"><i class="fa-solid fa-calendar-plus"></i> cáp</a>
-         <a href="all_sạc_điện_thoại.php"><i class="fa-solid fa-charging-station"></i> sạc</a>
+         <!-- <a href="all_cáp_điện_thoại.php"><i class="fa-solid fa-calendar-plus"></i> cáp</a>
+         <a href="all_sạc_điện_thoại.php"><i class="fa-solid fa-charging-station"></i> sạc</a> -->
          <a href="all_laptop.php"><i class="fa-solid fa-laptop"></i> laptop</a>
-         <a href="all_chuột.php"><i class="fa-solid fa-computer-mouse"></i> chuột</a>
-         <a href="all_loa_bluetooth.php"><i class="fa-brands fa-bluetooth"></i> loa bluetooth</a>
+         <!-- <a href="all_chuột.php"><i class="fa-solid fa-computer-mouse"></i> chuột</a>
+         <a href="all_loa_bluetooth.php"><i class="fa-brands fa-bluetooth"></i> loa bluetooth</a> -->
          <!-- <a href="phụ_kiện.php"><i class="fa-solid fa-headphones"></i> phụ kiện</a> -->
-         <a href="all_bàn_phím.php"><i class="fa-regular fa-keyboard"></i> bàn phím</a>
+         <!-- <a href="all_bàn_phím.php"><i class="fa-regular fa-keyboard"></i> bàn phím</a> -->
          <a href="giới_thiệu.php"><i class="fa-solid fa-circle-info"></i> giới thiệu</a>
-         <a href="đơn_hàng.php"><i class="fa-solid fa-cart-plus"></i> đơn hàng</a>
+         <!-- <a href="đơn_hàng.php"><i class="fa-solid fa-cart-plus"></i> đơn hàng</a> -->
          <a href="liên_hệ.php"><i class="fa-solid fa-address-book"></i> liên hệ</a>
       </nav>
 

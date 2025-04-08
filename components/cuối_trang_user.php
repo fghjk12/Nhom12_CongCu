@@ -18,13 +18,7 @@
          <a href="đơn_hàng.php"> <i class="fas fa-angle-right"></i><i class="fa-solid fa-truck-fast"></i>đơn hàng</a>
       </div>
 
-      <div class="box">
-         <h3>Liên hệ chúng tôi</h3>
-         <a href="#" click="clickToCopy('0335196106')"><i class="fas fa-phone"></i> 0335196106</a>
-         <a href="#"><i class="fas fa-phone"></i> 0375637827</a>
-         <a href="#"><i class="fas fa-envelope"></i> nhhcutehihi@gmail.com</a>
-         <a href="https://www.google.com/maps"><i class="fas fa-map-marker-alt"></i> việt xuân, vĩnh tường - vĩnh phúc </a>
-      </div>
+      
 
       <div class="box">
          <h3>theo dõi chúng tôi</h3>
@@ -40,13 +34,7 @@
          color: #f39c12;
       }
    </style>
-   <div class="credit"><i class="fa-solid fa-barcode"></i> @ <?= date('Y'); ?> <i class="fa-solid fa-barcode"></i>  <span>hữu huy</span> | 
-       <i class="fa-solid fa-star" ></i>
-       <i class="fa-solid fa-star" ></i>
-       <i class="fa-solid fa-star" ></i>
-       <i class="fa-solid fa-star" ></i>
-       <i class="fa-solid fa-star" ></i>
-   </div>
+   
    
 
 </footer>

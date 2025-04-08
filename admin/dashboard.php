@@ -87,7 +87,7 @@ if(!isset($admin_id)){
          <a href="ql_người_dùng.php" class="btn">xem người dùng</a>
       </div>
 
-      <div class="box" style="background-color: #990000;">
+      <!-- <div class="box" style="background-color: #990000;">
          <?php
             $select_admins = $conn->prepare("SELECT * FROM `admins`");
             $select_admins->execute();
@@ -96,7 +96,7 @@ if(!isset($admin_id)){
          <h3 style="color: #fff;"><?= $number_of_admins; ?></h3>
          <p>người dùng admin</p>
          <a href="admin_accounts.php" class="btn">xem admin</a>
-      </div>
+      </div> -->
 
       <div class="box" style="background-color: #A2007C;">
          <?php
@@ -108,7 +108,7 @@ if(!isset($admin_id)){
          <p>các tin nhắn mới</p>
          <a href="messages.php" class="btn">xem tin nhắn</a>
       </div>
-      <div class="box" style="background-color: #ECAB53;">
+      <!-- <div class="box" style="background-color: #ECAB53;">
          <?php
             $select_reviews = $conn->prepare("SELECT * FROM `reviews`");
             $select_reviews->execute();
@@ -117,7 +117,7 @@ if(!isset($admin_id)){
          <h3 style="color: #000000;"><?= $number_of_reviews; ?></h3>
          <p>đánh giá</p>
          <a href="reviews.php" class="btn">xem reviews</a>
-      </div>
+      </div> -->
    
 
    </div>

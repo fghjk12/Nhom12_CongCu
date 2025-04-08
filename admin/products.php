@@ -124,7 +124,7 @@ if(isset($_GET['delete'])){
          <a href="add_điện_thoại.php" class="btn">thêm điện thoại</a>
       </div>
      
-      <div class="box">
+      <!-- <div class="box">
          <?php
             $loai = 'loa Bluetooth';
             $select_loai = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$loai}%'");
@@ -147,8 +147,8 @@ if(isset($_GET['delete'])){
          <h3 class="add"><i class="fa-solid fa-computer-mouse"></i></h3>
          <p><?= $number_of_products; ?> sản phẩm</p>
          <a href="add_chuột.php" class="btn">thêm chuột</a>
-      </div>
-      <div class="box">
+      </div> -->
+      <!-- <div class="box">
          <?php
             $loai = 'bàn phím';
             $select_loai = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$loai}%'");
@@ -171,8 +171,8 @@ if(isset($_GET['delete'])){
          <h3 class="add"><i class="fa-solid fa-calendar-plus"></i> </h3>
          <p><?= $number_of_products; ?> sản phẩm</p>
          <a href="add_cáp.php" class="btn">thêm cáp</a>
-      </div>
-      <div class="box">
+      </div> -->
+      <!-- <div class="box">
          <?php
             $loai = 'sạc';
             $select_loai = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$loai}%'");
@@ -183,7 +183,7 @@ if(isset($_GET['delete'])){
          <h3 class="add"><i class="fa-solid fa-charging-station"></i></h3>
          <p><?= $number_of_products; ?> sản phẩm</p>
          <a href="add_sạc.php" class="btn">thêm sạc</a>
-      </div>
+      </div> -->
    </div>
 
   

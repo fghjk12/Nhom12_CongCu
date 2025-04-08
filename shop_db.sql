@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 22, 2023 lúc 03:16 PM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Aug 17, 2023 at 06:55 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,33 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `shop_db`
+-- Database: `shop_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
   `id` int(100) NOT NULL,
   `name` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `admins`
+-- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id`, `name`, `password`) VALUES
-(1, 'admin', '356a192b7913b04c54574d18c28d46e6395428ab'),
-(6, 'player', '356a192b7913b04c54574d18c28d46e6395428ab');
+(1, 'admin', 'e57a14bb5a3ccdc260d173d989d187d86d4aabfa'),
+(6, 'player', '356a192b7913b04c54574d18c28d46e6395428ab'),
+(7, 'nv', 'f97e5ab36598587bc1b8a033b04fcba1a5a4dcd6'),
+(8, 'nvv', 'f97e5ab36598587bc1b8a033b04fcba1a5a4dcd6');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -58,19 +60,22 @@ CREATE TABLE `cart` (
   `total` int(100) NOT NULL,
   `quantity` int(100) NOT NULL,
   `image` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `cart`
+-- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `sp`, `name`, `key_word_sp`, `import_price`, `price`, `total`, `quantity`, `image`) VALUES
-(213, 1, 37, 'Laptop Acer Aspire 3 A315 57 379K i3 1005G1/4GB/256GB/Win11 (NX.KAGSV.001)', 'laptop', 7500000, 7990000, 7990000, 2, 'acer-aspire-3-a315-57-379k-i3-nxkagsv001-ab-1-1.jpg');
+(213, 1, 37, 'Laptop Acer Aspire 3 A315 57 379K i3 1005G1/4GB/256GB/Win11 (NX.KAGSV.001)', 'laptop', 7500000, 7990000, 7990000, 2, 'acer-aspire-3-a315-57-379k-i3-nxkagsv001-ab-1-1.jpg'),
+(232, 14, 38, 'Điện thoại Samsung Galaxy A24 6GB', 'dtdd', 5380000, 5890000, 0, 1, 'samsung-galaxy-a24-den-1.jpg'),
+(233, 14, 24, 'Laptop Apple MacBook Pro 13 inch M1 2020 8-core CPU/16GB/512GB/8-core GPU (Z11C)', 'laptop', 33000000, 34990000, 0, 1, 'space-1-org.jpg'),
+(234, 14, 31, 'Laptop Asus Gaming TUF Dash F15 FX517ZE i5 12450H/8GB/512GB/4GB RTX3050Ti/144Hz/Win11 (HN045W)', 'laptop', 20500000, 21990000, 0, 1, 'asus-tuf-gaming-fx517ze-i5-hn045w-2-1.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `details_order`
+-- Table structure for table `details_order`
 --
 
 CREATE TABLE `details_order` (
@@ -86,10 +91,10 @@ CREATE TABLE `details_order` (
   `quantity` int(100) NOT NULL,
   `price` int(100) NOT NULL,
   `total` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `details_order`
+-- Dumping data for table `details_order`
 --
 
 INSERT INTO `details_order` (`id`, `cart_id`, `products_id`, `key_word`, `user_id`, `user_name`, `address`, `phone_number`, `date`, `quantity`, `price`, `total`) VALUES
@@ -98,12 +103,25 @@ INSERT INTO `details_order` (`id`, `cart_id`, `products_id`, `key_word`, `user_i
 (34, 0, 30, 'chuot', 3, 'trung kiên', '123, vĩnh tường , Vĩnh Phúc', 335190000, '2023-07-21 17:44:09', 1, 2240000, 2240000),
 (35, 217, 57, 'cap-dien-thoai', 3, 'trung kiên', '123, vĩnh tường , Vĩnh Phúc', 335190000, '2023-07-21 18:04:57', 1, 490000, 490000),
 (38, 220, 19, 'laptop', 3, 'trung kiên', '123, vĩnh tường , Vĩnh Phúc', 335190000, '2023-07-22 09:37:59', 2, 15990000, 31980000),
-(39, 221, 58, 'sac-dien-thoai', 3, 'trung kiên', '123, vĩnh tường , Vĩnh Phúc', 335190000, '2023-07-22 09:43:41', 3, 520000, 1560000);
+(39, 221, 58, 'sac-dien-thoai', 3, 'trung kiên', '123, vĩnh tường , Vĩnh Phúc', 335190000, '2023-07-22 09:43:41', 3, 520000, 1560000),
+(40, 0, 38, 'dtdd', 14, 'nnnn', 'fff, xxxxxx , Huyện Lục Yên', 787676766, '2023-08-15 16:05:38', 1, 5890000, 5890000),
+(41, 0, 25, 'dtdd', 14, 'nnnn', 'fff, xxxxxx , Huyện Lục Yên', 787676766, '2023-08-15 16:05:54', 1, 4590000, 4590000),
+(42, 0, 25, 'dtdd', 14, 'nnnn', 'fff, xxxxxx , Huyện Lục Yên', 787676766, '2023-08-15 16:06:43', 1, 4590000, 4590000),
+(43, 0, 32, 'dtdd', 14, 'nnnn', 'fff, xxxxxx , Huyện Lục Yên', 787676766, '2023-08-15 16:07:04', 1, 24890000, 24890000),
+(44, 0, 36, 'laptop', 14, 'nnnn', 'fff, xxxxxx , Huyện Lục Yên', 787676766, '2023-08-17 00:20:59', 1, 34490000, 34490000),
+(45, 227, 55, 'banphim', 15, 'xxxxxx', '4565, hcm , Tỉnh Vĩnh Phúc', 364877525, '2023-08-17 00:32:14', 1, 1490000, 1490000),
+(46, 0, 25, 'dtdd', 15, 'xxxxxx', '4565, hcm , Tỉnh Vĩnh Phúc', 364877525, '2023-08-17 00:32:22', 1, 4590000, 4590000),
+(47, 0, 36, 'laptop', 15, 'xxxxxx', '4565, hcm , Tỉnh Vĩnh Phúc', 364877525, '2023-08-17 00:32:31', 1, 34490000, 34490000),
+(48, 0, 22, 'loa_bluetooth', 15, 'xxxxxx', '4565, hcm , Tỉnh Vĩnh Phúc', 364877525, '2023-08-17 00:32:48', 1, 560000, 560000),
+(49, 0, 37, 'laptop', 15, 'xxxxxx', '4565, hcm , Tỉnh Vĩnh Phúc', 364877525, '2023-08-17 00:33:40', 1, 7990000, 7990000),
+(50, 0, 38, 'dtdd', 14, '', '', 0, '2023-08-17 11:49:49', 1, 5890000, 5890000),
+(51, 0, 24, 'laptop', 14, '', '', 0, '2023-08-17 11:49:53', 1, 34990000, 34990000),
+(52, 0, 31, 'laptop', 14, '', '', 0, '2023-08-17 11:49:56', 1, 21990000, 21990000);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
@@ -114,20 +132,21 @@ CREATE TABLE `messages` (
   `number` varchar(20) NOT NULL,
   `message` varchar(500) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `messages`
+-- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`id`, `user_id`, `name`, `email`, `number`, `message`, `date_time`) VALUES
 (5, 1, 'Hữu Huy', 'nguyenhuuhuy28122002@gmail.com', '0335196106', 'hi', '2023-07-16 15:08:57'),
-(6, 1, 'Hữu Huy', 'nguyenhuuhuy28122002@gmail.com', '0335196106', 'hihi', '2023-07-16 15:09:34');
+(6, 1, 'Hữu Huy', 'nguyenhuuhuy28122002@gmail.com', '0335196106', 'hihi', '2023-07-16 15:09:34'),
+(8, 14, 'tẻ', 're@gmail.com', '087', 'hg', '2023-08-17 00:21:46');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -143,24 +162,27 @@ CREATE TABLE `orders` (
   `total_price` int(100) NOT NULL,
   `payment_status` varchar(100) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `total_products`, `total_import_price`, `total_price`, `payment_status`, `date`) VALUES
 (54, 3, 'trung kiên', '335190000', 'nhhcutehihi@gmail.com', 'thanh toán khi giao hàng', '123, vĩnh tường , Vĩnh Phúc,  bắc, việt nam - 111111', 'Loa Bluetooth JBL Go Essential  (560000 x 1) = 560000đ ----- ', 450000, 560000, '', '2023-07-21 14:06:21'),
 (55, 3, 'trung kiên', '335190000', 'nhhcutehihi@gmail.com', 'thanh toán khi giao hàng', '123, vĩnh tường , Vĩnh Phúc,  bắc, việt nam - 111111', 'Chuột Bluetooth Microsoft Ocean Plastic  (600000 x 1) = 600000đ ----- ', 550000, 600000, '', '2023-07-21 17:37:43'),
-(56, 3, 'trung kiên', '335190000', 'nhhcutehihi@gmail.com', 'thanh toán khi giao hàng', '123, vĩnh tường , Vĩnh Phúc,  bắc, việt nam - 111111', 'Chuột Bluetooth Apple MK2E3 (2240000 x 1) = 2240000đ ----- ', 2133000, 2240000, '', '2023-07-21 17:44:14'),
 (57, 3, 'trung kiên', '335190000', 'nhhcutehihi@gmail.com', 'thanh toán khi giao hàng', '123, vĩnh tường , Vĩnh Phúc,  bắc, việt nam - 111111', 'Cáp Type C - Lightning 1m Apple MM0A3  (490000 x 1) = 490000đ ----- ', 460000, 490000, '', '2023-07-22 09:26:43'),
 (58, 3, 'trung kiên', '335190000', 'nhhcutehihi@gmail.com', 'thanh toán khi giao hàng', '123, vĩnh tường , Vĩnh Phúc,  bắc, việt nam - 111111', 'Laptop Acer Aspire 7 Gaming A715 76G 5132 i5 12450H/8GB/512GB/4GB GTX1650/144Hz/Win11 (NH.QMESV.002) (15990000 x 2) = 31980000đ ----- ', 29900000, 31980000, '', '2023-07-22 09:38:07'),
-(59, 3, 'trung kiên', '335190000', 'nhhcutehihi@gmail.com', 'thanh toán khi giao hàng', '123, vĩnh tường , Vĩnh Phúc,  bắc, việt nam - 111111', 'Adapter Sạc Type C 20W dùng cho iPhone/iPad Apple MHJE3 (520000 x 3) = 1560000đ ----- ', 1500000, 1560000, '', '2023-07-22 09:43:51');
+(59, 3, 'trung kiên', '335190000', 'nhhcutehihi@gmail.com', 'thanh toán khi giao hàng', '123, vĩnh tường , Vĩnh Phúc,  bắc, việt nam - 111111', 'Adapter Sạc Type C 20W dùng cho iPhone/iPad Apple MHJE3 (520000 x 3) = 1560000đ ----- ', 1500000, 1560000, 'chưa giải quyết', '2023-07-22 09:43:51'),
+(61, 14, 'nnnn', '787676766', 'xxxx@gmail.com', 'momo', 'fff, xxxxxx , Huyện Lục Yên,  bắc, việt nam - 70000', 'Điện thoại Samsung Galaxy A14 6GB (4590000 x 1) = 4590000đ ----- ', 4500000, 4590000, 'chưa giải quyết', '2023-08-15 16:06:52'),
+(62, 14, 'nnnn', '787676766', 'xxxx@gmail.com', 'paypal', 'fff, xxxxxx , Huyện Lục Yên,  bắc, việt nam - 70000', 'Điện thoại iPhone 14 Pro 128GB (24890000 x 1) = 24890000đ ----- ', 23890000, 24890000, 'hoàn thành', '2023-08-15 16:07:14'),
+(63, 14, 'nnnn', '787676766', 'xxxx@gmail.com', 'thanh toán khi giao hàng', 'fff, xxxxxx , Huyện Lục Yên,  bắc, việt nam - 70000', 'Laptop Apple MacBook Pro 13 inch M2 2022 8-core CPU/8GB/512GB/10-core GPU (MNEJ3SA/A)  (34490000 x 1) = 34490000đ ----- ', 33900000, 34490000, 'hoàn thành', '2023-08-17 00:21:10'),
+(64, 15, 'ưer', '364877525', 'admin@gmail.com', 'thanh toán khi giao hàng', '4565, hcm , Tỉnh Vĩnh Phúc,  trung, việt nam - 7000', 'Bàn Phím Cơ Bluetooth Rapoo V700 - 8A (1490000 x 1) = 1490000đ ----- Điện thoại Samsung Galaxy A14 6GB (4590000 x 1) = 4590000đ ----- Laptop Apple MacBook Pro 13 inch M2 2022 8-core CPU/8GB/512GB/10-core GPU (MNEJ3SA/A)  (34490000 x 1) = 34490000đ ----- ', 39600000, 40570000, 'hoàn thành', '2023-08-17 00:33:23');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -193,10 +215,10 @@ CREATE TABLE `products` (
   `details_10` varchar(200) NOT NULL,
   `details_11` varchar(200) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `key_word`, `brand`, `quantity_sp`, `details`, `details1`, `details2`, `details3`, `details4`, `details5`, `import_price`, `price`, `discount`, `image_01`, `image_02`, `image_03`, `details_1`, `details_2`, `details_3`, `details_4`, `details_5`, `details_6`, `details_7`, `details_8`, `details_9`, `details_10`, `details_11`, `date`) VALUES
@@ -209,7 +231,6 @@ INSERT INTO `products` (`id`, `name`, `key_word`, `brand`, `quantity_sp`, `detai
 (20, 'Loa Bluetooth JBL Go 3 ', 'loa_bluetooth', 'JBL', 18, 'Sang trọng, hiện đại, kích thước nhỏ gọn dễ mang theo.\r\nKết nối nhanh chóng, ổn định, mượt mà với Bluetooth 5.1.\r\nCông suất 4.2 W với công nghệ JBL Pro Sound cho âm thanh mạnh mẽ, sống động.\r\nKháng bụi, chống nước chuẩn IP67.\r\nSạc đầy pin trong 2.5 giờ, sử dụng lên đến 5 giờ.', '', '', '', '', '', 850000, 1090000, 890000, 'bluetooth-jbl-go-3-xanh-hong-1.jpg', 'bluetooth-jbl-go-3-xanh-hong-6.jpg', 'bluetooth-jbl-go-3-xanh-hong-5.jpg', '', '', '', '', '', '', '', '', '', '', '', '2023-07-19 17:27:40'),
 (21, 'Loa Bluetooth Mozard E7 ', 'loa_bluetooth', 'Mozard', 79, 'Thiết kế với kiểu dáng hình trụ bo tròn đẹp mắt.\r\n\r\n\r\n', '', 'Công nghệ Bluetooth 4.2 kết nối mượt mà trong khoảng cách 10 m.', 'Công suất 5 W cho âm thanh phát ra lớn và sống động.\r\n', 'Trang bị chức năng TWS kết nối 2 loa với nhau (chỉ tương thích loa Mozard E7).', 'Dung lượng pin 1500 mAh cho thời gian sử dụng khoảng khoảng 5 giờ (âm lượng 80%), khoảng 3 giờ (âm lượng 100%), thời gian sạc cho loa khoảng 4 giờ.', 500000, 700000, 560000, 'loa-bluetooth-mozard-e7-den-1-org.jpg', 'loa-bluetooth-mozard-e7-den-8-org.jpg', 'loa-bluetooth-mozard-e7-den-7-org.jpg', '5 W', 'Pin', 'Dùng khoảng 4 - 5 tiếng, Sạc khoảng 4 tiếng', 'Bluetooth 4.2', 'Thẻ nhớ Micro SD, Jack 3.5mm', 'Có micro đàm thoại, Kết nối không dây nhiều loa cùng lúc', 'Nút nguồn, Tăng/giảm âm lượng, Phát/dừng chơi nhạc', 'H2VP', 'Mozard.', '', '', '2023-07-19 17:27:40'),
 (22, 'Loa Bluetooth JBL Go Essential ', 'loa_bluetooth', 'JBL', 44, 'Thiết kế vuông vức cùng màu sắc thời thượng, tạo cảm giác sang trọng cho loa.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '', 'Linh động mang theo với khối lượng chỉ 180 g, kích thước nhỏ nhắn, bỏ vừa lòng bàn tay.', 'Công suất 3.1 W cùng màng loa 44 mm cho âm thanh to rõ, đáp ứng tốt nhu cầu sử dụng cá nhân.', 'Loa JBL này được trang bị công nghệ Bluetooth 4.2, ổn định kết nối trong bán kính 10 m.', 'Nhận năng lượng bằng cách cắm điện trực tiếp hoặc dùng pin.', 450000, 790000, 560000, 'loa-bluetooth-jbl-go-essential-1-1.jpg', 'loa-bluetooth-jbl-go-essential-7.jpg', 'loa-bluetooth-jbl-go-essential-8.jpg', '', '', '', '', '', '', '', '', '', '', '', '2023-07-19 17:27:40'),
-(23, 'Laptop HP 240 G8 i3 1115G4/8GB/256GB/Win11 (6L1A1PA)', 'laptop', 'HP', 15, 'Vẻ ngoài thanh lịch, cấu hình ổn định cùng mức giá lý tưởng là những ưu điểm mà sinh viên hay dân văn phòng nên lựa chọn chiếc laptop HP 240 G8 i3 (6L1A1PA) làm trợ thủ đắc lực hàng đầu cho các công việc thiết yếu hằng ngày. \r\n\r\n\r\n\r\n', '• Quan sát tốt các nội dung hiển thị trên màn hình nhờ không gian rộng rãi 14 inch kết hợp tấm nền IPS, cùng với đó là độ phân giải Full HD và công nghệ Anti Glare cho chất lượng hình ảnh rõ ràng, sắc nét mà vẫn bảo vệ thị giác của người dùng.\r\n', '• Yên tâm tải các tệp tài liệu cần thiết về máy mà không lo tốn nhiều dung lượng nhờ laptop HP cơ bản trang bị ổ cứng SSD 256 GB (nâng cấp tối đa 1 TB). Khả năng đa nhiệm mượt mà đáng kể với laptop RAM 8 GB chuẩn DDR4 2 khe.', '• Laptop HP trang bị công nghệ âm thanh Realtek High Definition Audio mang đến những phút giây thư giãn trọn vẹn với chất âm sống động, chân thực. ', '• Các cổng kết nối được trang bị trên laptop như USB 3.1, HDMI, Jack tai nghe 3.5 mm, LAN (RJ45) và USB Type-C hỗ trợ kết nối với các thiết bị ngoại vi khác nhanh chóng và dễ dàng hơn.', '\r\n• Khối lượng chỉ vỏn vẹn 1.47 kg giúp bạn dễ dàng để vào balo và linh hoạt di chuyển đến đến trường lớp, công ty,... mà không quá cồng kềnh.', 9000000, 12990000, 9790000, 'vi-vn-hp-240-g8-i3-6l1a1pa-1.jpg', 'vi-vn-hp-240-g8-i3-6l1a1pa-2.jpg', 'vi-vn-hp-240-g8-i3-6l1a1pa-6.jpg', '', '', '', '', '', '', '', '', '', '', '', '2023-07-19 17:27:40'),
 (24, 'Laptop Apple MacBook Pro 13 inch M1 2020 8-core CPU/16GB/512GB/8-core GPU (Z11C)', 'laptop', 'Apple', 7, 'Chip Apple M1 là một bộ vi xử lý mạnh mẽ, được ra mắt lần đầu tiên trên máy Mac. Đây là con chip sản xuất trên tiến trình 5 nm, tích hợp CPU 8 lõi với 4 lõi CPU tốc độ và và 4 lõi tiết kiệm năng lượng. Nhờ vậy, thời lượng pin của laptop được kéo dài đến tận 10 tiếng đồng hồ, giúp cho bạn thoải mái làm việc với một hiệu suất cực kỳ cao.\r\n\r\n\r\n\r\n\r\n\r\n', 'Laptop SSD 512 GB giúp bạn tăng tốc toàn diện máy tính với tốc độ khởi động, mở ứng dụng, truyền dữ liệu nhanh vượt trội so với ổ cứng HDD truyền thống. Bên cạnh đó, RAM 16 GB của laptop giúp nâng cao khả năng đa nhiệm, dễ dàng mở những tập tin lớn, nặng hay mở nhiều trình duyệt cùng lúc nhưng không xảy ra tình trạng giật lag.', 'chiếc laptop phiên bản thời thượng với vỏ kim loại nguyên khối cực kỳ sang trọng, nhỏ gọn và thời trang. Bạn cũng có thể dễ dàng cho Macbook Pro 2020 vào cặp xách hay balo, cầm trên tay nhẹ nhàng để di chuyển bất cứ nơi đâu chỉ với khối lượng 1.4 kg và mỏng 15.6 mm.', 'Được trang bị cổng kết nối USB Type-C hỗ trợ kết nối 2 chiều cực kỳ tiện lợi với 2 cổng Thunderbolt 3, đem đến tốc độ nhanh hơn nhiều so với các cổng kết nối trước đây. Ngoài ra, MacBook bạn còn có các cổng kết nối không dây khác như Wi-Fi 6 802.11ax, Bluetooth 5.0 giữ cho đường truyền luôn ổn định để phục vụ tốt cho những công việc của bạn.', 'Với độ phân giải 2560 x 1600 vô cùng sắc nét, màn hình Retina 13.3 inch hiển thị lý tưởng mọi nội dung bạn cần theo dõi, từ trang web, văn bản rõ ràng cho đến những đoạn phim sống động.', 'Ấn tượng hơn nữa, với độ sáng màn hình lên đến 500 nits, bạn sẽ có được một trải nghiệm ánh sáng tuyệt vời trên một màn hình hiển thị hình ảnh cực kỳ sống động và chân thật. Bên cạnh đó, với tấm nền IPS, bạn sẽ đắm chìm vào một thế giới màu sắc vô cùng rực rỡ và có được một góc nhìn rộng hơn.', 33000000, 42690000, 34990000, 'space-1-org.jpg', 'space-2-org.jpg', 'apple-macbook-pro-2020-z11c-30.jpg', '', '', '', '', '', '', '', '', '', '', '', '2023-07-19 17:27:40'),
 (25, 'Điện thoại Samsung Galaxy A14 6GB', 'dtdd', 'Samsung', 56, 'Samsung Galaxy A14 4G được thiết kế với sự thừa hưởng vẻ đẹp tinh tế đến từ dòng sản phẩm cao cấp Galaxy S23 series. Với vẻ đẹp hiện đại, màu sắc thanh lịch và góc cạnh bo tròn tinh tế, những điều này đem đến cho máy một cái nhìn cao cấp hơn về thiết kế để giúp bất kỳ ai khi cầm nắm đều trở nên sang trọng.\r\n\r\n\r\n\r\n\r\n\r\n', 'Bởi vì máy thuộc phân khúc giá rẻ nên tấm nền mà hãng sử dụng cho Galaxy A14 4G cũng chỉ nằm ở mức PLS LCD, nhưng đổi lại thì hãng cũng sẽ hỗ trợ cho điện thoại độ phân giải đạt mức Full HD+ thay vì HD+ như trên một vài đối thủ trong phân khúc, nhờ đó mà hình ảnh được tái hiện sắc nét hơn giúp mọi nội dung đều trở nên chân thực.', 'Samsung Galaxy A14 4G không chỉ gây ấn tượng bởi hiệu năng ổn định, thiết kế mới lạ mà còn nằm ở hệ thống camera sắc nét, bao gồm cảm biến chính 50 MP đi kèm ống kính siêu rộng 5 MP và camera macro 2 MP, mặt trước thì sẽ là camera selfie độ phân giải 13 MP.', 'Ảnh chụp mà Samsung Galaxy A14 4G cho ra ở điều kiện đủ sáng có chất lượng hình ảnh rõ ràng, khả năng tái tạo màu sắc ổn, vì vậy người dùng hoàn toàn có thể tự tin lưu giữ lại trọn vẹn vẻ đẹp của từng khoảnh khắc. Với mức giá không quá cao nhưng lại sở hữu bộ camera tốt như vậy thì đây quả thực là sản phẩm giá rẻ đáng cân nhắc dành cho những bạn đam mê chụp ảnh.', 'Chuyển sang về mặt hiệu năng, Samsung Galaxy A14 4G được trang bị chip Exynos 850, đây là một gương mặt mà rất nhiều nhà sản xuất điện thoại Android lựa chọn cho các sản phẩm giá rẻ - tầm trung của mình bởi sức mạnh mà vi xử lý mang lại cùng mức giá phải chăng.', 'Samsung Galaxy A14 4G có dung lượng pin khủng đến 5000 mAh và hỗ trợ sạc có công suất 15 W. Đặc biệt khi bật chế độ siêu tiết kiệm pin, thiết bị vẫn có thể đá', 4500000, 5000000, 4590000, 'samsung-galaxy-a14-4g-den-1-1.jpg', 'samsung-galaxy-a14-4g-tem-20-1.jpg', 'samsung-galaxy-a14-4g-den-9.jpg', '', '', '', '', '', '', '', '', '', '', '', '2023-07-19 17:27:40'),
 (26, 'Laptop Asus TUF Gaming F15 FX506LHB i5 10300H/8GB/512GB/4GB GTX1650/144Hz/Win11 (HN188W)', 'laptop', 'Asus', 14, 'CPU Intel Core i5 10300H thế hệ thứ 10 với 4 nhân và 8 luồng, tốc độ xung nhịp cơ bản 2.50 GHz và tần số tăng tốc tối đa lên đến 4.5 GHz. Một bộ vi xử lý mạnh mẽ có thể đáp ứng được nhiều nhu cầu như chơi game, làm việc văn phòng, làm đồ họa và xử lý video. CPU cũng hỗ trợ các công nghệ tiên tiến như Intel Turbo Boost và Intel Hyper Threading để tăng hiệu suất cũng như tăng cường khả năng xử lý đa nhiệm.\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '', 'Laptop Asus được trang bị RAM 8 GB DDR4, đủ để xử lý hầu hết các tác vụ và trò chơi không quá nặng. Nếu có nhu cầu cao hơn bạn có thể nâng cấp RAM lên tối đa 32 GB để giúp cho việc xử lý đa nhiệm trên máy tính trở nên trơn tru hơn, đồng thời cũng khiến cho các ứng dụng và trò chơi hoạt động nhanh và mượt mà hơn. Dung lượng RAM cao cũng giúp tránh hiện tượng giật hoặc lag khi sử dụng nhiều ứng dụng cùng lúc.', 'Với ổ cứng SSD dung lượng lưu trữ 512 GB không chỉ có tốc độ truy xuất dữ liệu cao, giúp tối ưu tốc độ khởi động máy mà còn cho phép người dùng lưu trữ nhiều ứng dụng và dữ liệu. Nếu cần thêm không gian lưu trữ, bạn cũng có thể tháo ra ổ SSD trong máy ra lắp ổ khác tối đa 1 TB.', 'Card đồ họa NVIDIA GeForce GTX 1650 với bộ nhớ VRAM 4 GB đủ mạnh để chơi được hầu hết các game phổ biến hiện nay như: PUBG, Valorant, GTA V, Assassin\'s Creed, The Witcher 3,... Tuy nhiên, để chơi các game nặng hơn như Cyberpunk 2077, Call of Duty: Warzone, bạn nên cân nhắc giảm độ phân giải hoặc chỉnh mức cấu hình thấp hơn để đảm bảo tốc độ khung hình cũng như chơi với độ mượt mà và ổn định hơn.\r\n', 'Hệ thống tản nhiệt của Asus TUF Gaming F15 được thiết kế khá đặc biệt để đảm bảo khả năng làm mát tốt cho các linh kiện bên trong máy. Thiết bị có 2 quạt làm mát và 2 ống dẫn nhiệt chuyên dụng để tản nhiệt cho bộ vi xử lý và card đồ họa. Khe thông gió được bố trí ở cạnh mặt trên của máy, giúp lưu thông không khí một cách hiệu quả.', 15000000, 20990000, 15490000, 'vi-vn-asus-tuf-gaming-fx506lhb-i5-hn188w-1.jpg', 'asus-tuf-gaming-fx506lhb-i5-hn188w-10-1020x570.jpg', 'vi-vn-asus-tuf-gaming-fx506lhb-i5-hn188w-3.jpg', '', '', '', '', '', '', '', '', '', '', '', '2023-07-19 17:27:40'),
@@ -231,9 +252,9 @@ INSERT INTO `products` (`id`, `name`, `key_word`, `brand`, `quantity_sp`, `detai
 (46, 'Điện thoại iPhone 11 64GB ', 'dtdd', 'Apple', 46, 'Năm nay với iPhone 11 thì Apple đã nâng cấp khá nhiều về camera nếu so sánh với chiếc iPhone Xr 128GB năm ngoái.\r\nChúng ta đã có bộ đôi camera kép thay vì camera đơn như trên thế hệ cũ và với một camera góc siêu rộng thì bạn cũng có nhiều hơn những lựa chọn khi chụp hình.\r\n\r\n\r\n\r\n\r\n', 'Trước đây để lấy được hết kiến trúc của một tòa nhà, để ghi lại hết sự hùng vĩ của một ngọn núi thì không còn cách nào khác là bạn phải di chuyển ra khá xa để chụp.', 'Nhưng với góc siêu rộng trên iPhone 11 thì có thể cho bạn những bức ảnh với hiệu ứng góc rộng rất ấn tượng và thích mắt.\r\nBên cạnh đó là tính năng Deep Fusion được quảng cáo là cơ chế chụp hình mới, đem lại hình ảnh với độ chi tiết cao, dải tần nhạy sáng rộng và rất ít bị nhiễu.\r\n', 'Cụ thể, khi người dùng bấm nút chụp, thiết bị sẽ thực hiện tổng cộng 9 bức hình cùng lúc, gồm một tấm chính và tám tấm phụ, sau đó chọn ra các điểm ảnh tốt nhất để đưa vào tấm ảnh cuối cùng nhằm cải thiện chi tiết và khử nhiễu.', 'Và điều được người dùng mong chờ nhất chính là tính năng chụp đêm cũng xuất hiện trên chiếc iPhone mới này với tên gọi Night Mode.', '\r\nMàu sắc mới trên chiếc iPhone này hứa hẹn cũng sẽ khiến người dùng phải mê mệt và muốn bỏ tiền ra sở hữu ngay và luôn một chiếc.', 11000000, 13990000, 12490000, 'iphone-11-trang-1-org.jpg', 'iphone-11-128gb-trang-12-org.jpg', 'iphone-11-128gb-note.jpg', ' IPS LCD, 6.1 inch, Liquid Retina', ' iOS 15', ' 2 camera 12 MP', '12 MP', ' Apple A13 Bionic', '4 GB', ' 128 GB', ' 1 Nano SIM & 1 eSIM, Hỗ trợ 4G', '3110 mAh, 18 W', ' 11/2019', '', '2023-07-19 17:27:40'),
 (47, 'Điện thoại Samsung Galaxy A04 (3GB/32GB)', 'dtdd', 'Samsung', 150, 'Điện thoại Samsung Galaxy A04 (3GB/32GB) sở hữu tấm nền IPS LCD, độ phân giải HD+ cùng kích thước 6.5 inch mang đến không gian giải trí thoải mái, phù hợp với các nhu cầu giải trí của đại đa số người dùng.\r\n\r\n\r\n\r\n\r\n\r\n', '', 'Cũng như các điện thoại Samsung Galaxy A thì máy được trang bị công nghệ âm thanh Dolby Atmos*, giờ đây bạn sẽ được trải nghiệm những thanh âm quyến rũ và chân thật nhất.', '*Dolby Atmos chỉ hỗ trợ tai nghe hoặc loa âm thanh nổi.', 'Tuy là mẫu điện thoại giá rẻ nhưng Samsung đã trang bị tính năng nhận diện khuôn mặt hiện đại với tốc độ nhanh chóng, giúp bạn tiết kiệm được thời gian và tăng độ bảo mật hơn cho dế yêu của mình.', 'Điện thoại Samsung Galaxy A04 sẽ là một lựa chọn tuyệt vời khi so với các sản phẩm trong cùng phân khúc, khi máy sở hữu cho mình một màn hình hiển thị chi tiết, camera chụp ảnh đẹp và viên pin lớn, đây chắc chắn là mẫu điện thoại sẽ khuấy đảo thị trường công nghệ những tháng cuối năm.', 2500000, 2990000, 2490000, 'samsung-galaxy-a04-den-1-1.jpg', 'samsung-galaxy-04-den-2.jpg', 'samsung-galaxy-04-den-3.jpg', ' IPS LCD, 6.5 inch, HD+', 'Android 12', ' Chính 50 MP & Phụ 2 MP', ' 5 MP', 'MediaTek Helio P35', '3 GB', '32 GB', '2 Nano SIM, Hỗ trợ 4G', '5000 mAh, 15 W', '', '', '2023-07-19 17:27:40'),
 (48, 'Điện thoại Nokia G22 ', 'dtdd', 'Nokia', 67, 'Nokia G22 là mẫu điện thoại giá rẻ được ra mắt chính thức vào tháng 03/2023 tại thị trường Việt Nam. Máy nổi bật với màn hình lớn, camera có độ phân giải 50 MP cùng một viên pin trâu cho thời gian sử dụng vô cùng ấn tượng.\r\n', '', '', '', 'Mặt trước của điện thoại Nokia được trang bị tấm nền LCD có kích thước 6.52 inch, độ phân giải HD+ (720 x 1600 Pixels) cùng độ sáng 500 nits, cung cấp khả năng tương phản khá, độ chi tiết đạt mức ổn so với mức giá, phù hợp dùng để lướt web thông thường hay xem phim với chất lượng vừa phải, do khả năng tái hiện màu sắc chưa thực sự tốt cho lắm.\r\n', 'Sở hữu thông số cấu hình ổn định, camera có độ phân giải cao cùng thời lượng pin siêu ấn tượng, Nokia G22 là một lựa chọn lý tưởng cho người dùng với mức giá dễ tiếp cận, nhưng vẫn đáp ứng tốt các nhu cầu sử dụng cơ bản hằng ngày.', 3400000, 3990000, 3690000, 'nokia-g22-xam-1-1.jpg', 'nokia-g22-xam-11.jpg', 'nokia-g22-note.jpg', ' LCD, 6.52 inch, HD+', 'Android 12', 'Chính 50 MP & Phụ 2 MP, 2 MP', ' 8 MP', 'Unisoc T606', '4 GB', ' 128 GB', '2 Nano SIM, Hỗ trợ 4G', '5050 mAh, 20 W', '', '', '2023-07-19 17:27:40'),
-(49, 'Điện thoại OPPO Reno8 T 5G 128GB', 'dtdd', 'OPPO', 50, 'OPPO Reno8 T 5G 128GB là mẫu điện thoại đầu tiên trong năm 2023 mà OPPO kinh doanh tại Việt Nam. Máy nhận được khá nhiều sự quan tâm đến từ cộng đồng công nghệ về thông số kỹ thuật hết sức ấn tượng như: Camera 108 MP, chipset nhà Qualcomm và màn hình AMOLED.\r\nReno8 T 5G sở hữu một mặt lưng làm từ thủy tinh hữu cơ đi kèm với đó sẽ là kiểu phối màu gradient cực kỳ bắt mắt và sang trọng. Cả hai điều này sẽ mang đến cho thiết bị một cái nhìn cao cấp hơn, giúp bạn có thể tự tin cầm nắm sử dụng ở bất kỳ nơi đâu hay đây cũng được xem là món phụ kiện thời trang đẹp mắt và cũng vô cùng thú vị.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 'Ngoài ra, OPPO sẽ sử dụng tấm nền AMOLED dành cho Reno8 T 5G, vì thế nội dung hiển thị sẽ có màu sắc bắt mắt, hình ảnh có chiều sâu cùng với khả năng tối ưu điện năng cực tốt để cho ra thời gian sử dụng lâu dài. Kèm với đó là màn hình có tần số quét 120 Hz, độ sáng tối đa 800 nits mang lại khả năng vuốt chạm mượt mà và hiển thị nội dung rõ ràng kể cả ở ngoài trời.', 'Mỗi đời điện thoại OPPO Reno từ trước đến nay thì camera chắc hẳn là phần được quan tâm nhiều nhất không chỉ bởi chất lượng mà còn về cả số lượng, số lượng ở đây có thể coi là độ phân giải trên camera bởi hãng không ngừng nâng cấp và cho ra sản phẩm có con số này ngày càng cao.', 'Đối với với chiếc Reno8 T 5G thì máy sẽ được trang bị bộ 3 ống kính trong đó cảm biến chính sở hữu độ phân giải lên tới 108 MP, nhờ đó mà mỗi bức ảnh chụp từ điện thoại OPPO sẽ cho ra chất lượng tốt hơn bởi độ phân giải lúc này là cực kỳ cao, màu sắc thì cũng sẽ trở nên chân thực hơn nhờ nhiều thuật toán xử lý thông minh đi kèm.', 'Đối với với chiếc Reno8 T 5G thì máy sẽ được trang bị bộ 3 ống kính trong đó cảm biến chính sở hữu độ phân giải lên tới 108 MP, nhờ đó mà mỗi bức ảnh chụp từ điện thoại OPPO sẽ cho ra chất lượng tốt hơn bởi độ phân giải lúc này là cực kỳ cao, màu sắc thì cũng sẽ trở nên chân thực hơn nhờ nhiều thuật toán xử lý thông minh đi kèm.', 'Reno8 T 5G sẽ sở hữu một màn hình lớn với kích thước 6.7 inch cùng kiểu thiết kế dạng nốt ruồi hiện đại, điều này sẽ đem đến một không gian lớn giúp bạn có thể tận hưởng trọn vẹn mọi loại nội dung, phù hợp cho việc xem phim, lướt web và kể cả chơi những tựa game đòi hỏi tầm quan sát rộng lớn như PUBG Mobile.\r\nTổng kết lại về mặt thông số thì đây được xem là một mẫu điện thoại Android hết sức nổi bật .', 8990000, 9990000, 9490000, 'oppo-reno8-t-vang-5g-1.jpg', 'oppo-reno8t-5g-note-1.jpg', 'oppo-reno8-t-vang-5g-12.jpg', 'AMOLED, 6.7 inch, Full HD+', 'Android 13', ' Chính 108 MP & Phụ 2 MP, 2 MP', '32 MP', ' Snapdragon 695 5G', '8 GB', '128 GB', '2 Nano SIM (SIM 2 chung khe thẻ nhớ)Hỗ trợ 5G', ' 4800 mAh, 67 W', '01/2023', '', '2023-07-19 17:27:40');
+(49, 'Điện thoại OPPO Reno8 T 5G 128GB', 'dtdd', 'OPPO', 50, 'OPPO Reno8 T 5G 128GB là mẫu điện thoại đầu tiên trong năm 2023 mà OPPO kinh doanh tại Việt Nam. Máy nhận được khá nhiều sự quan tâm đến từ cộng đồng công nghệ về thông số kỹ thuật hết sức ấn tượng như: Camera 108 MP, chipset nhà Qualcomm và màn hình AMOLED.\r\nReno8 T 5G sở hữu một mặt lưng làm từ thủy tinh hữu cơ đi kèm với đó sẽ là kiểu phối màu gradient cực kỳ bắt mắt và sang trọng. Cả hai điều này sẽ mang đến cho thiết bị một cái nhìn cao cấp hơn, giúp bạn có thể tự tin cầm nắm sử dụng ở bất kỳ nơi đâu hay đây cũng được xem là món phụ kiện thời trang đẹp mắt và cũng vô cùng thú vị.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 'Ngoài ra, OPPO sẽ sử dụng tấm nền AMOLED dành cho Reno8 T 5G, vì thế nội dung hiển thị sẽ có màu sắc bắt mắt, hình ảnh có chiều sâu cùng với khả năng tối ưu điện năng cực tốt để cho ra thời gian sử dụng lâu dài. Kèm với đó là màn hình có tần số quét 120 Hz, độ sáng tối đa 800 nits mang lại khả năng vuốt chạm mượt mà và hiển thị nội dung rõ ràng kể cả ở ngoài trời.', 'Mỗi đời điện thoại OPPO Reno từ trước đến nay thì camera chắc hẳn là phần được quan tâm nhiều nhất không chỉ bởi chất lượng mà còn về cả số lượng, số lượng ở đây có thể coi là độ phân giải trên camera bởi hãng không ngừng nâng cấp và cho ra sản phẩm có con số này ngày càng cao.', 'Đối với với chiếc Reno8 T 5G thì máy sẽ được trang bị bộ 3 ống kính trong đó cảm biến chính sở hữu độ phân giải lên tới 108 MP, nhờ đó mà mỗi bức ảnh chụp từ điện thoại OPPO sẽ cho ra chất lượng tốt hơn bởi độ phân giải lúc này là cực kỳ cao, màu sắc thì cũng sẽ trở nên chân thực hơn nhờ nhiều thuật toán xử lý thông minh đi kèm.', 'Đối với với chiếc Reno8 T 5G thì máy sẽ được trang bị bộ 3 ống kính trong đó cảm biến chính sở hữu độ phân giải lên tới 108 MP, nhờ đó mà mỗi bức ảnh chụp từ điện thoại OPPO sẽ cho ra chất lượng tốt hơn bởi độ phân giải lúc này là cực kỳ cao, màu sắc thì cũng sẽ trở nên chân thực hơn nhờ nhiều thuật toán xử lý thông minh đi kèm.', 'Reno8 T 5G sẽ sở hữu một màn hình lớn với kích thước 6.7 inch cùng kiểu thiết kế dạng nốt ruồi hiện đại, điều này sẽ đem đến một không gian lớn giúp bạn có thể tận hưởng trọn vẹn mọi loại nội dung, phù hợp cho việc xem phim, lướt web và kể cả chơi những tựa game đòi hỏi tầm quan sát rộng lớn như PUBG Mobile.\r\nTổng kết lại về mặt thông số thì đây được xem là một mẫu điện thoại Android hết sức nổi bật .', 8990000, 9990000, 9490000, 'oppo-reno8-t-vang-5g-1.jpg', 'oppo-reno8t-5g-note-1.jpg', 'oppo-reno8-t-vang-5g-12.jpg', 'AMOLED, 6.7 inch, Full HD+', 'Android 13', ' Chính 108 MP & Phụ 2 MP, 2 MP', '32 MP', ' Snapdragon 695 5G', '8 GB', '128 GB', '2 Nano SIM (SIM 2 chung khe thẻ nhớ)Hỗ trợ 5G', ' 4800 mAh, 67 W', '01/2023', '', '2023-07-19 17:27:40'),
+(50, 'Điện thoại Samsung Galaxy S23 Ultra 5G 512GB ', 'dtdd', 'Samsung', 16, 'Với những ai là tín đồ công nghệ thì Samsung Galaxy S23 Ultra 5G 512GB chắc hẳn không còn là cái tên quá xa lạ tại thời điểm này nữa, mới đây thì máy cũng đã chính thức được giới thiệu với hàng loạt các tính năng cũng như công nghệ nổi bật, có thể thấy thì đây được xem là một trong những sản phẩm đột phá về mọi mặt đến từ nhà Samsung trong năm 2023 nhằm hướng đến vị trí thương hiệu hàng đầu trong ngành.\r\nThiết kế sang trọng cùng những đường nét tinh xảo\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\nThiết kế cụm camera sau trên Galaxy S23 Ultra được làm đơn giản nhưng tinh tế, tạo cảm giác không rối mắt cho người dùng nhưng vẫn toát lên vẻ quyến rũ và sang trọng.', 'Điểm nổi bật là bút S Pen thế hệ mới trên Galaxy S23 Ultra được cải tiến giúp người dùng thao tác nhanh hơn, nhạy hơn so với các thế hệ trước trong các tác vụ thường ngày như: Ghi chú nhanh, nút bấm hỗ trợ chụp ảnh, hỗ trợ thuyết trình, vẽ,...', 'Màn hình chất lượng hiển thị rõ nét và chân thật\r\nGalaxy S23 Ultra sẽ được sử dụng lối thiết kế bo cong ở mặt lưng cùng kiểu màn hình vô cực ở hai bên, thân máy thì sẽ được làm chủ yếu từ vật liệu cao cấp như mặt lưng kính phủ nhám vì, thế Galaxy S23 Ultra trông mạnh mẽ, cá tính hơn đồng thời mang đến khả năng chống xước, chống bám vân tay, hạn chế bám bụi tốt.\r\n', 'Màn hình của điện thoại có thước 6.8 inch cùng với tấm nền Dynamic AMOLED 2X có khả năng hiển thị hình ảnh một cách chân thật và rực rỡ, mang đến cho người dùng không gian màn ảnh rộng chỉ trong tầm tay - thỏa sức trải nghiệm.', 'Màn hình trên Galaxy S23 Ultra được đánh giá là xuất sắc, rõ nét với độ phân giải 2K+, hỗ trợ tần số quét 120 Hz cho người dùng trải nghiệm xem phim, hay chơi game và lướt web,... vô cùng mượt mà.Mẫu flagship trong năm 2023 - Galaxy S23 Ultra 5G là một thiết bị mà người dùng không nên bỏ qua, đặc biệt là tín đồ đam mê chụp ảnh và chơi game. Thiết bị không chỉ sở hữu cấu hình mạnh mẽ mà còn khoác lên mình bộ cánh sang trọng quyến rũ, nhờ đó mà bạn có thể tự tin cầm nắm trong các buổi họp hay tối ưu công việc của bạn thông qu', 28990000, 36990000, 27990000, 'samsung-galaxy-s23-ultra-xanh-1.jpg', 'samsung-galaxy-s23-ultra-note.jpg', 'samsung-galaxy-s23-ultra-xanh-12.jpg', ' Dynamic AMOLED 2X, 6.8 inch, Quad HD+ (2K+)', 'Android 13', 'Chính 200 MP & Phụ 12 MP, 10 MP, 10 MP', ' 12 MP', 'Snapdragon 8 Gen 2 8 nhân', '12 GB', '512 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '5000 mAh, 45 W', ' 02/2023', '', '2023-07-19 17:27:40');
 INSERT INTO `products` (`id`, `name`, `key_word`, `brand`, `quantity_sp`, `details`, `details1`, `details2`, `details3`, `details4`, `details5`, `import_price`, `price`, `discount`, `image_01`, `image_02`, `image_03`, `details_1`, `details_2`, `details_3`, `details_4`, `details_5`, `details_6`, `details_7`, `details_8`, `details_9`, `details_10`, `details_11`, `date`) VALUES
-(50, 'Điện thoại Samsung Galaxy S23 Ultra 5G 512GB ', 'dtdd', 'Samsung', 16, 'Với những ai là tín đồ công nghệ thì Samsung Galaxy S23 Ultra 5G 512GB chắc hẳn không còn là cái tên quá xa lạ tại thời điểm này nữa, mới đây thì máy cũng đã chính thức được giới thiệu với hàng loạt các tính năng cũng như công nghệ nổi bật, có thể thấy thì đây được xem là một trong những sản phẩm đột phá về mọi mặt đến từ nhà Samsung trong năm 2023 nhằm hướng đến vị trí thương hiệu hàng đầu trong ngành.\r\nThiết kế sang trọng cùng những đường nét tinh xảo\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\nThiết kế cụm camera sau trên Galaxy S23 Ultra được làm đơn giản nhưng tinh tế, tạo cảm giác không rối mắt cho người dùng nhưng vẫn toát lên vẻ quyến rũ và sang trọng.', 'Điểm nổi bật là bút S Pen thế hệ mới trên Galaxy S23 Ultra được cải tiến giúp người dùng thao tác nhanh hơn, nhạy hơn so với các thế hệ trước trong các tác vụ thường ngày như: Ghi chú nhanh, nút bấm hỗ trợ chụp ảnh, hỗ trợ thuyết trình, vẽ,...', 'Màn hình chất lượng hiển thị rõ nét và chân thật\r\nGalaxy S23 Ultra sẽ được sử dụng lối thiết kế bo cong ở mặt lưng cùng kiểu màn hình vô cực ở hai bên, thân máy thì sẽ được làm chủ yếu từ vật liệu cao cấp như mặt lưng kính phủ nhám vì, thế Galaxy S23 Ultra trông mạnh mẽ, cá tính hơn đồng thời mang đến khả năng chống xước, chống bám vân tay, hạn chế bám bụi tốt.\r\n', 'Màn hình của điện thoại có thước 6.8 inch cùng với tấm nền Dynamic AMOLED 2X có khả năng hiển thị hình ảnh một cách chân thật và rực rỡ, mang đến cho người dùng không gian màn ảnh rộng chỉ trong tầm tay - thỏa sức trải nghiệm.', 'Màn hình trên Galaxy S23 Ultra được đánh giá là xuất sắc, rõ nét với độ phân giải 2K+, hỗ trợ tần số quét 120 Hz cho người dùng trải nghiệm xem phim, hay chơi game và lướt web,... vô cùng mượt mà.Mẫu flagship trong năm 2023 - Galaxy S23 Ultra 5G là một thiết bị mà người dùng không nên bỏ qua, đặc biệt là tín đồ đam mê chụp ảnh và chơi game. Thiết bị không chỉ sở hữu cấu hình mạnh mẽ mà còn khoác lên mình bộ cánh sang trọng quyến rũ, nhờ đó mà bạn có thể tự tin cầm nắm trong các buổi họp hay tối ưu công việc của bạn thông qu', 28990000, 36990000, 27990000, 'samsung-galaxy-s23-ultra-xanh-1.jpg', 'samsung-galaxy-s23-ultra-note.jpg', 'samsung-galaxy-s23-ultra-xanh-12.jpg', ' Dynamic AMOLED 2X, 6.8 inch, Quad HD+ (2K+)', 'Android 13', 'Chính 200 MP & Phụ 12 MP, 10 MP, 10 MP', ' 12 MP', 'Snapdragon 8 Gen 2 8 nhân', '12 GB', '512 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '5000 mAh, 45 W', ' 02/2023', '', '2023-07-19 17:27:40'),
 (51, 'Điện thoại Vivo Y36', 'dtdd', 'Vivo', 47, 'Vivo Y36 chiếc điện thoại Vivo Y mới nhất được nhà Vivo tung ra thị trường Việt Nam vào tháng 06/2023. Máy sở hữu vẻ ngoài hiện đại trẻ trung, màn hình hiển thị sắc nét cùng một hiệu năng ổn định với các tác vụ hằng ngày.\r\nVẻ ngoài đơn giản tạo nên sức hút\r\n\r\n\r\n\r\n', 'Khác với những mẫu điện thoại Vivo Y trước đây, mặt trước của Y36 được thay bằng kiểu thiết kế nốt ruồi thời thượng so với màn hình giọt nước trước đó. Chính sự thay đổi này làm cho màn hình trở nên rộng hơn và các cạnh viền được làm mỏng cho cảm giác vuốt chạm tốt.\r\n', 'Mặt trước của điện thoại Vivo sẽ là tấm nền IPS LCD có kích thước 6.64 inch, độ phân giải của máy đạt mức Full HD+ (1080 x 2388 Pixels) cho mọi nội dung trên màn hình được tái hiện tương đối sắc nét, giúp bạn chiêm ngưỡng những bộ phim, chơi game được tốt hơn.', 'Điện thoại được trang bị công nghệ sạc siêu nhanh, cho phép sạc với công suất 44 W, kèm theo viên pin dung lượng 5000 mAh cho phép người dùng sử dụng thoải mái cả một ngày dài với nhiều tác vụ như chơi game, xem phim liên tục', 'Ngoài ra, thiết bị còn hỗ trợ nhiều phương thức kết nối như 4G, Wi-Fi, Bluetooth 5.0, GPS, cổng sạc Type-C, tạo điều kiện thuận lợi cho người dùng trong quá trình sử dụng thiết bị.\r\n', 'Vivo Y36 được xem là sản phẩm rất lý tưởng dành cho ai đang có nhu cầu tìm mua cho mình một chiếc điện thoại có thiết kế đẹp mắt, hiệu năng ổn định cùng mức giá thành phải chăng. Đây hứa hẹn sẽ là sản phẩm nhận được nhiều sự chú ý từ người tiêu dùng.', 6000000, 7800000, 6990000, 'vivo-y36-den-1-2.jpg', 'vivo-y36-note.jpg', 'vivo-y36-den-11-1.jpg', 'IPS LCD, 6.64 inch, Full HD+', 'Android 13', 'Chính 50 MP & Phụ 2 MP', ' 16 MP', ' Snapdragon 680', ' 8 GB', ' 256 GB', '2 Nano SIM, Hỗ trợ 4G', ' 5000 mAh, 44 W', ' 06/2023', '', '2023-07-19 17:27:40'),
 (52, 'Laptop Acer Nitro 5 Gaming AN515 57 5669 i5 11400H/8GB/512GB/144Hz/4GB GTX1650/Win11 (NH.QEHSV.001)', 'laptop', 'Acer', 45, 'Laptop Acer Nitro 5 Gaming AN515 57 5669 i5 (NH.QEHSV.001) khơi nguồn mọi cảm hứng game thủ với phong cách thiết kế đậm chất gaming cùng những chuyển động mượt mà với card đồ họa NVIDIA GeForce GTX, mang lại chiến thắng tuyệt đối cho người dùng trên mọi chiến trường ảo.\r\n\r\n\r\n', '', 'Được chế tác từ lớp vỏ nhựa bền chắc với gam màu đen chủ đạo, Acer Nitro đã bật lên hẳn phong thái gaming mạnh mẽ với hai đường cắt cực ngầu như tia chớp trên mặt lưng máy, đánh bật mọi đối thủ xuất hiện xung quanh nó. Máy còn sở hữu thân hình khá gọn so với dòng laptop gaming khi có bề dày 23.9 mm và trọng lượng 2.2 kg, cho phép bạn luôn trong tư thế chiến đấu mọi lúc mọi nơi mà không sợ cồng kềnh, nặng nhọc.', 'Đáp ứng tối ưu mọi nhu cầu từ làm việc đến giải trí khi sở hữu bộ bàn phím Fullsize bao gồm vùng phím số giúp các thao tác nhập liệu được diễn ra suôn sẻ với tốc độ nhanh chóng hơn, hành trình sâu và độ nảy cao còn mang lại cảm giác gõ máy êm tay, thoải mái. ', 'Laptop Acer được trang bị hệ thống đèn bàn phím chuyển màu RGB nổi bật kích thích sự hứng khởi của các game thủ bằng cách dễ dàng xác định vị trí của từng phím dù chơi ở môi trường tối.', 'Acer Nitro 5 Gaming AN515 57 5669 i5 (NH.QEHSV.001) xứng đáng trở thành người trợ thủ đắc lực luôn sẵn sàng đồng hành cùng bạn trên mọi chiến trường. Phong cách thiết kế trẻ trung, thời trang cùng những thông số kỹ thuật đáng gờm còn đáp ứng đa dạng nhu cầu từ học tập, văn phòng cơ bản đến đồ họa - kỹ thuật chuyên sâu.', 17500000, 23790000, 17990000, 'acer-nitro-5-gaming-an515-57-5669-i5-nhqehsv001-1.jpg', 'acer-nitro-5-gaming-an515-57-5669-i5-nhqehsv001-30.jpg', 'acer-nitro-5-gaming-an515-57-5669-i5-nhqehsv001-note-.jpg', 'i5, 11400H, 2.7GHz', '8 GB, DDR4 2 khe (1 khe 8 GB + 1 khe rời), 3200 MHz', '512 GB SSD NVMe PCIe (Có thể tháo ra, lắp thanh khác tối đa 1 TB), Hỗ trợ thêm 1 khe cắm SSD M.2 PCIe mở rộng (nâng cấp tối đa 1 TB), Hỗ trợ khe cắm HDD SATA (nâng cấp tối đa 2 TB)', '15.6 inch, Full HD (1920 x 1080), 144Hz', 'Card rời, GTX 1650 4GB', 'USB Type-C, HDMI, LAN (RJ45), 3 x USB 3.2, Jack tai nghe 3.5 mm', 'Windows 11 Home SL', 'Vỏ nhựa', 'Dài 363.4 mm - Rộng 255 mm - Dày 23.9 mm - Nặng 2.2 kg', '2021', '', '2023-07-19 17:27:40'),
 (53, 'Laptop Acer Nitro 5 Tiger AN515 58 52SP i5 12500H/8GB/512GB/4GB RTX3050/144Hz/Win11 (NH.QFHSV.001)', 'laptop', 'Acer', 34, 'Một bước tiến cấu hình vượt bật được Acer ưu ái trên chiếc laptop Acer Nitro 5 Tiger AN515 58 52SP i5 (NH.QFHSV.001) khi trang bị bộ vi xử lý Intel Gen 12 đầy mạnh mẽ cùng phong cách thiết kế đậm chất “mãnh hổ”, khơi nguồn sức mạnh tiềm ẩn bên trong mỗi game thủ trên mọi chiến trường ảo. \r\nBùng nổ sức mạnh với con chip Intel Gen 12 mạnh mẽ\r\n\r\n\r\n\r\n\r\n', 'Mình đã rất kinh ngạc khi Nitro 5 Tiger không chỉ đặc biệt với cái tên trùng với con giáp Mãnh Hổ của năm 2022 mà còn là một trong những nhân vật đại diện đầu tiên của nhà Acer tân trang con chip Intel thế hệ 12 đầy mạnh mẽ. Để giải đáp sự tò mò về sức mạnh vượt bật của bộ vi xử lý Intel Core i5 Alder Lake 12500H này, mình sẽ sử dụng phần mềm Cinebench R20 để kiểm chứng khả năng của em nó đến đâu nhé!\r\n', 'Sau những phút chờ đợi “vất vả” thì mình đo được 4723 điểm với đa nhân và 642 điểm với đơn nhân, cho khả năng xử lý mọi tác vụ trên cả tuyệt vời, bên cạnh đó cũng “ăn” cao nhất 87W điện cho CPU và tiêu tốn 93 độ khi chưa bật Nitro Sense.\r\n', 'Sẵn đang đề cập đến Nitro Sense thì mình cho ngay chiếc laptop này 10 điểm cộng với tốc độ quạt được cải tiến hơn 7000 vòng trên phút, trong khi những thế hệ cũ chỉ nằm đâu đó khoảng 5000 - 6000 vòng, từ đó giúp cải thiện rất nhiều cho khả năng tản nhiệt của máy mỗi khi chiến các tựa game đình đám. \r\n', 'Sự xuất hiện của hệ thống khe hút gió và các cổng kết nối như Thunderbolt 4 USB-C, HDMI, cổng sạc ngay phía dưới cạnh mặt sau của laptop Acer đã ghi điểm cộng đối với mình bởi sự thuận tiện của nó, cho các thao tác đi dây được gọn gàng hơn hẳn. Nhưng đừng nghĩ là chỉ có nhiêu đó thôi nhé, ở hai bên cạnh trái phải của máy cũng được trang bị đầy đủ các cổng bao gồm 3 cổng USB 3.2, LAN và Jack tai nghe 3.5 mm hỗ trợ rất nhiều trong việc truyền tải dữ liệu đến các thiết bị ngoại vi khác. ', 'Một trong những “linh hồn” làm nên chiếc laptop gaming thì không thể thiếu được bàn phím, và tương tự như các dòng sản phẩm tiền nhiệm, Nitro 5 Tiger vẫn sở hữu layout bàn phím fullsize với hành trình sâu và độ nả', 21000000, 27990000, 22990000, 'acer-nitro-5-tiger-an515-58-52sp-i5-nhqfhsv001-abc-1.jpg', 'acer-nitro-5-tiger-an515-58-52sp-i5-nhqfhsv001-note.jpg', 'acer-nitro-5-tiger-an515-58-52sp-i5-nhqfhsv001-30.jpg', 'i5, 12500H, 2.5GHz', '8 GB, DDR4 2 khe (1 khe 8 GB + 1 khe rời), 3200 MHz', '512 GB SSD NVMe PCIe (Có thể tháo ra, lắp thanh khác tối đa 1 TB), Hỗ trợ thêm 1 khe cắm SSD M.2 PCIe mở rộng (nâng cấp tối đa 1 TB), Hỗ trợ thêm 1 khe cắm HDD SATA (nâng cấp tối đa 1 TB)', '15.6 inch, Full HD (1920 x 1080), 144Hz', 'Card rời, RTX 3050 4GB', 'HDMI, LAN (RJ45), 3 x USB 3.2, Jack tai nghe 3.5 mm, Thunderbolt 4 USB-C', 'Windows 11 Home SL', ' Vỏ nhựa', 'Dài 360.4 mm - Rộng 271.09 mm - Dày 25.9 mm - Nặng 2.5 kg', ' 2022', '', '2023-07-19 17:27:40'),
@@ -242,12 +263,14 @@ INSERT INTO `products` (`id`, `name`, `key_word`, `brand`, `quantity_sp`, `detai
 (56, 'Laptop MSI Gaming GF63 Thin 11SC i5 11400H/8GB/512GB/4GB GTX1650/144Hz/Win11 (664VN)', 'laptop', 'MSI', 11, '• Bộ vi xử lý Intel Core i5 11400H kết hợp cùng card đồ họa NVIDIA GeForce GTX 1650 4 GB cho phép bạn chiến các tựa game đình đám như Liên Minh Huyền Thoại, CS:GO, PUBG,... ở mức cấu hình cao, đồng thời có khả năng xử lý đồ họa với hiệu suất cao.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '• Màn hình 15.6 inch rộng rãi phù hợp để chơi game, làm việc văn phòng, tấm nền IPS hỗ trợ độ phân giải Full HD có khả năng tái tạo hình ảnh với góc nhìn rộng, có độ chi tiết cao, mang đến cho bạn trải nghiệm khung hình sắc nét và sống động hơn.', '\r\n• RAM 8 GB với khả năng nâng cấp lên đến tối đa 64 GB cho khả năng xử lý đa nhiệm tốt, chạy nhiều ứng dụng cùng một lúc mà không gặp phải giật lag gây khó chịu. Ổ SSD 512 GB NVMe PCIe có thể lưu trữ nhiều tệp tin lớn, cải thiện hiệu suất khi chơi game và xử lý đồ họa.', '• Công nghệ âm thanh Realtek High Definition Audio cho phép người dùng tùy chỉnh âm lượng, cân bằng âm để bạn có những giây phút giải trí tuyệt vời.', '• Laptop MSI sở hữu lớp vỏ ngoài được hoàn thiện từ chất liệu kim loại vừa đảm bảo độ bền bỉ vừa tạo cảm giác sang trọng, khối lượng 1.86 kg không quá nặng đối với một chiếc laptop gaming.\r\n', '• Đèn bàn phím màu đỏ hỗ trợ bạn điều khiển nhân vật trong game dễ dàng hơn về đêm. Laptop còn được trang bị nhiều cổng kết nối như: HDMI, USB 3.2, USB Type-C, LAN.', 14900000, 16490000, 15190000, 'msi-gaming-gf63-thin-11sc-i5-664vn-123-glr-1-2.jpg', 'msi-gaming-gf63-thin-11sc-i5-664vn-123-glr-2.jpg', 'msi-gaming-gf63-thin-11sc-i5-664vn-30.jpg', 'i5, 11400H, 2.7GHz', '8 GB, DDR4 2 khe (1 khe 8 GB + 1 khe rời), 3200 MHz', '512 GB SSD NVMe PCIe, Hỗ trợ khe cắm SATA 2.5 inch mở rộng (nâng cấp SSD hoặc HDD đều được)', '15.6 inch, Full HD (1920 x 1080), 144Hz', 'Card rời, GTX 1650 4GB', 'USB Type-C, HDMI, LAN (RJ45), 3 x USB 3.2, Jack tai nghe 3.5 mm', 'Windows 11 Home SL', 'Vỏ kim loại', 'Dài 359 mm - Rộng 254 mm - Dày 21.7 mm - Nặng 1.86 kg', '2022', '', '2023-07-19 17:27:40'),
 (57, 'Cáp Type C - Lightning 1m Apple MM0A3 ', 'cap-dien-thoai', 'Apple', 123, 'Cáp sạc màu trắng sang trọng, có chiều dài 1 m, phù hợp dùng tại nhà, công ty.\r\n\r\n\r\n\r\n', 'Sạc pin mạnh mẽ với mức công suất lên đến 87 W. \r\nĐồng bộ hóa dữ liệu hiệu quả giữa điện thoại và laptop. ', 'Thiết kế tinh giản, chiều dài lý tưởng 1 m\r\n“Sang - xịn - mịn” là ba từ chính xác nhất để mình miêu tả vẻ ngoài của cáp Type C - Lightning 1 m Apple MM0A3. Không thể phủ nhận một điều rằng Apple rất chỉn chu trong từng sản phẩm ngay từ vỏ hộp cho đến sản phẩm bên trong. Cảm giác của mình khi đập hộp sợi dây cáp này phải gọi là đã, tổng thể của dây cáp được hoàn thiện tỉ mỉ với sắc màu trắng quen thuộc. ', 'Đầu vào Type-C và đầu ra Lightning sử dụng với các thiết bị Apple, adapter sạc, sạc dự phòng.\r\nMẫu dây cáp Apple MM0A3 giống Apple MX0K2, chỉ khác mã lô.', 'Cáp Type C - Lightning 1m Apple MM0A3 Trắng sở hữu thiết kế đơn giản, độ dài 1 m cùng khả năng sạc nhanh lên đến 87 W chính là sự lựa chọn tuyệt vời cho các iFans chân chính.', 'Hàng chính hãng Apple, nguyên seal 100%.\r\n', 460000, 590000, 490000, 'cap-type-c-lightning-1m-apple-mm0a3-trang-1-1.jpg', 'cap-type-c-lightning-1m-apple-mm0a3-trang-2.jpeg', 'cap-type-c-lightning-1m-apple-mm0a3-trang-3-1.jpg', 'Truyền dữ liệu, Sạc', 'Type-C, Lightning', 'USB Type-C', 'Lightning', '87 W', 'Hỗ trợ sạc nhanh', '1 m', 'Mỹ', 'Việt Nam/Trung Quốc (tùy lô hàng)', 'Apple.', '', '2023-07-19 17:27:40'),
 (58, 'Adapter Sạc Type C 20W dùng cho iPhone/iPad Apple MHJE3', 'sac-dien-thoai', 'Apple', 15, 'Adapter sạc nhanh Type C dành cho iPhone, iPad.\r\n\r\n\r\n\r\n\r\n\r\n', 'Cổng ra Type-C, kết nối thêm dây cáp để sạc cho điện thoại, máy tính bảng.\r\nSản phẩm chính hãng Apple, nguyên seal 100%.', 'Thiết kế nhỏ gọn, chuôi 2 chấu phổ biến.', 'Công suất 20 W cho tốc độ sạc nhanh chóng.', 'Ấn tượng đầu tiên khi cầm củ sạc Apple này trên tay, kiểu dáng nhỏ gọn, chiều ngang chỉ khoảng 2/3 thẻ căn cước công dân và chiều dài cũng chỉ gần bằng thẻ này. Đặc biệt, mình có thể cầm trọn trong lòng bàn tay, điều này cũng tương đương với việc củ sạc không chiếm nhiều diện tích trên ổ cắm và trong các ngăn balo, túi xách,... \r\n', 'Chất liệu nhựa màu trắng cứng cáp, các khớp được liên kết với nhau liền mạch cùng các viền được bo tròn, khi mình cầm củ sạc trên tay mang lại cảm giác đằm tay, chắc chắn và cũng khá thoải mái.', 500000, 690000, 520000, 'adapter-sac-type-c-20w-cho-iphone-ipad-apple-mhje3-1-org.jpg', 'adapter-sac-type-c-20w-cho-iphone-ipad-apple-mhje3-6.jpg', 'adapter-sac-type-c-20w-cho-iphone-ipad-apple-mhje3-3-org.jpg', 'MHJE3', 'Sạc', 'Hãng không công bố', 'Type C: 20W', ' Type-C', ' 20 W', ' Hãng không công bố', 'Power Delivery', 'Việt Nam / Trung Quốc (tùy lô hàng)', ' Mỹ', 'Apple.', '2023-07-19 17:27:40'),
-(59, 'Laptop Acer Aspire 3 A3KS N5100/4GB/256GB/Win11 (NX.A7SSV.009)', 'laptop', 'Acer', 12, 'assss', '', '', '', '', '', 12000000, 2111111, 11111111, 'msi-gaming-gf63-thin-11sc-i5-664vn-123-glr-2.jpg', 'adapter-sac-type-c-20w-cho-iphone-ipad-apple-mhje3-1-org.jpg', 'msi-gaming-gf63-thin-11sc-i5-664vn-123-glr-1-2.jpg', 'i5, 12450H, 2GHz', 'á', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', '', '2023-07-19 17:27:40');
+(59, 'Laptop Acer Aspire 3 A3KS N5100/4GB/256GB/Win11 (NX.A7SSV.009)', 'laptop', 'Acer', 12, 'assss', '', '', '', '', '', 12000000, 2111111, 11111111, 'msi-gaming-gf63-thin-11sc-i5-664vn-123-glr-2.jpg', 'adapter-sac-type-c-20w-cho-iphone-ipad-apple-mhje3-1-org.jpg', 'msi-gaming-gf63-thin-11sc-i5-664vn-123-glr-1-2.jpg', 'i5, 12450H, 2GHz', 'á', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', '', '2023-07-19 17:27:40'),
+(60, 'demo them xxxx', 'laptop', 'abc', 8, '45th', '', '', '', '', '', 99999999, 99999, 2, 'acer-aspire-3-a314-35-c3ks-n5100-nxa7ssv009-3-1.jpg', 'acer-aspire-7-gaming-a715-76g-5132-i5-nhqmesv002-glr-1.jpg', '7GzRRsSbEe6jW3wL3NmM.jpeg', '45', '54', '54', '5', '45', '45', '45', '45', '54', '45', '', '2023-08-17 00:26:09'),
+(61, 'them sp new', 'dtdd', 'abc', 88, 'ggggg', '', '', '', '', '', 999999, 99999, 5, 'acer-aspire-3-a315-57-379k-i3-nxkagsv001-ab-3.jpg', 'acer-aspire-7-gaming-a715-76g-5132-i5-nhqmesv002-glr-1.jpg', 'acer-aspire-3-a315-57-379k-i3-nxkagsv001-ab-3.jpg', '45', '54', '54', '5', '45', '45', '45', '45', 'jjjj', '', '', '2023-08-17 00:36:11');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `reviews`
+-- Table structure for table `reviews`
 --
 
 CREATE TABLE `reviews` (
@@ -259,25 +282,26 @@ CREATE TABLE `reviews` (
   `description` varchar(1000) NOT NULL,
   `image_rv` varchar(200) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `reviews`
+-- Dumping data for table `reviews`
 --
 
 INSERT INTO `reviews` (`id`, `post_id`, `user_id`, `rating`, `title`, `description`, `image_rv`, `date`) VALUES
 ('1n7IvmyjocYkhsE2xLVX', 33, 2, '5', '1', '1', 'F0ASBMOTdpPHDNxbjKoq.jpg', '2023-07-19 16:12:58'),
 ('3lTdFeXe4T17s5e7aKVk', 33, 1, '4', 'hay', 'nên mua', '', '2023-06-22 00:00:00'),
+('3sGVAwSqTVhhZqRVwO9E', 36, 14, '4', 'tuyet voi', 'cccccvvvvvvvvvvfdfdfđf', 'adapter-sac-type-c-20w-cho-iphone-ipad-apple-mhje3-1-org.jpg', '2023-08-17 00:38:56'),
 ('4XBpeC3wdhPxjh4Ct8a8', 52, 2, '2', '1', '1', 'BhBrdbhCJc1Z65sgikHo.jpg', '2023-07-19 18:23:46'),
 ('7Ry5cjhz9NUYX970HzVU', 23, 2, '5', 'tốt', 'hàng dùng bền \r\ngiao hàng nhanh thanh toán tiện lợi\r\nlại còn giá hạt giẻ\r\nmãi iu shop', '', '2023-06-21 00:00:00'),
 ('AhsbdJuAklJFDIpcek3R', 32, 1, '5', 'hihi', 'xịn', '', '2023-06-22 00:00:00'),
+('bs0VVl0G6Jz8yd9QhEOO', 32, 14, '5', 'xxx', 'raart moke la', 'acer-aspire-3-a314-35-c3ks-n5100-nxa7ssv009-3-1.jpg', '2023-08-17 00:28:26'),
 ('c8xM41Y21a4dfC1TGgRO', 46, 1, '5', 'tốt', 'dùng mãi không hỏng', 'iphone-11-128gb-trang-12-org.jpg', '2023-07-16 15:12:48'),
 ('cYGNpFCfN6Bd2dO2TU0s', 19, 1, '5', 'hmk', 'iuiu', '', '2023-06-21 00:00:00'),
 ('dqhPqqo3pACkDM8VgF4k', 20, 1, '4', 'hiho', 'nghe được ổn', '', '2023-06-21 00:00:00'),
 ('ij06gJtFRKPrCTSyp2Ui', 14, 2, '3', 'huhu', '111', '', '2023-06-18 00:00:00'),
 ('iJokKAYRsmzmAsfNy814', 25, 1, '3', 'hi', 'hi', '', '2023-07-15 00:00:00'),
 ('jtdoqmnIga7BgNiXbbta', 24, 1, '4', 'hihi', '111', '', '2023-07-18 21:22:30'),
-('Q9JGwO6POQeYkO84rMT0', 57, 1, '4', 'hihi', 'dùng ổn giao hàng nhanh', '7GzRRsSbEe6jW3wL3NmM.jpeg', '2023-07-15 00:00:00'),
 ('QPrYbDGQcf3kgJT4lefA', 51, 1, '5', 'tốt', 'Đã dùng thử và rất ổn', 'X7dRUmh1ZBJ2j8KA6OEb.jpg', '2023-07-15 00:00:00'),
 ('RhpCFFmqDfkYHuh0F8vu', 16, 2, '5', 'xịn', 'rẻ', '', '2023-06-16 00:00:00'),
 ('RPtKbU8YLn86RCjcm8Tq', 38, 1, '5', 'đc', 'dùng ổn', '', '2023-06-24 00:00:00'),
@@ -295,7 +319,7 @@ INSERT INTO `reviews` (`id`, `post_id`, `user_id`, `rating`, `title`, `descripti
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -310,10 +334,10 @@ CREATE TABLE `users` (
   `city` varchar(200) NOT NULL,
   `pin_code` varchar(200) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `phone_number`, `email`, `password`, `image`, `flat`, `street`, `city`, `pin_code`, `date_time`) VALUES
@@ -322,106 +346,107 @@ INSERT INTO `users` (`id`, `name`, `phone_number`, `email`, `password`, `image`,
 (3, 'trung kiên', 335190000, 'nhhcutehihi@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', 'cxf408iiEj5wPO1k0r83.jpg', '123', 'vĩnh tường', 'Vĩnh Phúc', '111111', '2023-07-19 21:22:43'),
 (4, 'việt trung', 0, 'nguyenhuy@icloud.com', '356a192b7913b04c54574d18c28d46e6395428ab', 'wdxLu6TifNfqC1yakPrA.png', '', '', '', '', '2023-07-19 21:22:43'),
 (6, 'cậu bé hay khóc', 0, 'hihihuhu@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', 'In4TfNPCHoJmKg3CxORI.jpg', '', '', '', '', '2023-07-19 21:22:43'),
-(7, 'npc', 0, 'nhhcutehihi1@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', 'bFziX8yhhvDrNqMIFmWV.jpg', '', '', '', '', '2023-07-19 21:22:43'),
-(9, 'admin', 0, 'nhhcutehihi111@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', '', '', '', '', '', '2023-07-19 21:22:43');
+(9, 'admin', 0, 'nhhcutehihi111@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', '', '', '', '', '', '2023-07-19 21:22:43'),
+(14, 'nnnn', 787676766, 'xxxx@gmail.com', 'e57a14bb5a3ccdc260d173d989d187d86d4aabfa', '', 'fff', 'xxxxxx', 'Huyện Lục Yên', '70000', '2023-08-15 16:05:17'),
+(15, 'xxxxxx', 364877525, 'xxxxxx@gmail.com', 'c9118e242cbd5a4b50c291d63d71f191ae894bfe', 'iIonpp4WFreRmv2qtY6o.jpg', '4565', 'hcm', 'Tỉnh Vĩnh Phúc', '7000', '2023-08-17 00:31:17');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `admins`
+-- Indexes for table `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `details_order`
+-- Indexes for table `details_order`
 --
 ALTER TABLE `details_order`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `messages`
+-- Indexes for table `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `reviews`
+-- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `admins`
+-- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `cart`
+-- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
 
 --
--- AUTO_INCREMENT cho bảng `details_order`
+-- AUTO_INCREMENT for table `details_order`
 --
 ALTER TABLE `details_order`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT cho bảng `messages`
+-- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT cho bảng `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -28,9 +28,9 @@
          <a href="../admin/products.php"><span>Các sản phẩm</a>
          <a href="../admin/đơn_hàng.php"><span><i class="fa-solid fa-file-invoice-dollar"></i>(<?= $total_orders_counts; ?>)</span></a>
          <a href="../admin/Thống_kê.php"><span>Thống kê</span></a>
-         <a href="../admin/admin_accounts.php"><span>Admins</span></a>
+         <!-- <a href="../admin/admin_accounts.php"><span>Admins</span></a> -->
          <a href="../admin/ql_người_dùng.php"><span>Người dùng</span></a>
-         <a href="../admin/reviews.php"><span>Review</span></a>
+         <!-- <a href="../admin/reviews.php"><span>Review</span></a> -->
          <a href="../admin/messages.php"><span>Tin nhắn</span></a>
       </nav>
 
